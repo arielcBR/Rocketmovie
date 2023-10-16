@@ -18,7 +18,13 @@ export const Container = styled.div`
             height: 100%;
             padding-left: 144px;
 
-            > svg{
+            > a {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            a > svg{
                 color: ${({theme}) => theme.COLORS.ROSE};
                 transform: scale(1.4);
             }

@@ -46,7 +46,7 @@ export const Container = styled.header`
             }
         }
         
-        > img {
+        > a > img {
             border-radius: 50%;
             height: 64px;
             width: 64px;

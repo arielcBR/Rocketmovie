@@ -12,9 +12,9 @@ export function CreateMovie(){
             <Header/>
             <main>
                 <Link to="/">
-                    <span className='backButton'>
+                    <span className="backButton">
                         <FiArrowLeft/>
-                        <ButtonText title="Voltar"/>
+                        <ButtonText  to="/" title="Voltar"/>
                     </span>
                 </Link>
                 
