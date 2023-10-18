@@ -9,12 +9,23 @@ import { Input } from '../../components/Input';
 import { useAuth } from '../../hooks/auth';
 
 export function Profile() {
-    const { user } = useAuth();
+    const { user, updateProfile } = useAuth();
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+
+    async function handleUpdate() {
+        const user = {
+            name,
+            email,
+            old_password: oldPassword,
+            new_password: newPassword
+        };
+
+        await updateProfile({user});
+    }
 
     return(
         <Container>
@@ -38,12 +49,14 @@ export function Profile() {
                     icon={FiUser} 
                     placeholder="Nome" 
                     value={name}
+                    onChange={event => setName(event.target.value)}
                 />
                 <Input 
                     icon={FiMail} 
                     placeholder="E-mail" 
                     type="email" 
                     value={email}
+                    onChange={event => setEmail(event.target.value)}
                 />
                 <Input 
                     icon={FiLock} 
@@ -58,7 +71,10 @@ export function Profile() {
                     onChange={event=>setNewPassword(event.target.value)}
                 />
 
-                <Button to="/new" title="Salvar"/>
+                <Button
+                    title="Salvar"
+                    onClick={handleUpdate}
+                />
             </main>
 
         </Container>

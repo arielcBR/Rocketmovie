@@ -6,7 +6,7 @@ import { ButtonText } from '../ButtonText';
 import { useAuth } from '../../hooks/auth';
 
 export function Header(){
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
     return(
         <Container>
             <h1>RocketMovies</h1>
@@ -14,7 +14,7 @@ export function Header(){
 
             <div className='profile'>
                 <div>
-                    <h2>Ariel Campos</h2>
+                    <h2>{user.name}</h2>
                     <ButtonText
                         onClick={signOut}
                         title="Sair"
