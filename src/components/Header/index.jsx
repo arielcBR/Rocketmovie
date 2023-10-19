@@ -5,8 +5,13 @@ import { Input } from '../../components/Input';
 import { ButtonText } from '../ButtonText';
 import { useAuth } from '../../hooks/auth';
 
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import { api } from '../../services/api';
+
 export function Header(){
     const { signOut, user } = useAuth();
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
     return(
         <Container>
             <h1>RocketMovies</h1>
@@ -21,7 +26,7 @@ export function Header(){
                     />
                 </div>
                 <Link to="/profile">
-                    <img src="https://github.com/arielcBR.png" alt="Foto do usuário" />
+                    <img src={avatarUrl} alt="Foto do usuário" />
                 </Link>
             </div>
 

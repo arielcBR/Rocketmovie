@@ -1,12 +1,9 @@
-import styled from "styled-components";
-
-const userImage = "https://github.com/arielcBR.png";
+import styled from 'styled-components'
 
 export const Container = styled.div`
-    height: 100vh;
-    width: 100%;
+  width: 100%;
 
-    > header {
+  > header {
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_LIGHT};
         height: 144px;
 
@@ -18,86 +15,86 @@ export const Container = styled.div`
             height: 100%;
             padding-left: 144px;
 
-            > a {
+            > div {
                 display: flex;
                 align-items: center;
                 gap: 5px;
             }
 
-            a > svg{
+            div > svg{
                 color: ${({theme}) => theme.COLORS.ROSE};
                 transform: scale(1.4);
             }
 
-            > a > a{
+            > div > a{
                 color: ${({theme}) => theme.COLORS.ROSE};
                 font-size: 16px;
                 vertical-align: middle;
             }
         }
     }
+`
 
-    > main {
-        display: grid;
-        place-content: center;
+export const Avatar = styled.div`
+  position: relative;
+  margin: -124px auto 32px;
 
-        > div{
-            border: none;
-            border-radius: 10px;
-            background-color: ${({theme}) => theme.COLORS.BACKGROUND_INPUT_LIGHT};
-            padding: 8px;
-            height: 56px;
-            margin-bottom: 8px;
-        }
+  width: 186px;
+  height: 186px;
+  
+  > img {
+    border-radius: 50%;
+    width: 186px;
+    height: 186px;
+  }
 
-        > div:nth-child(2){
-            margin-top: 42px;
-        }
+  > label {
+    width: 48px;
+    height: 48px;
 
-        > div:nth-child(4){
-            margin-top: 16px;
-        }
-        
-        > div > input {
-            outline: none;
-            width: 340px;
-            height: 56px;
-        }
+    background-color: ${({theme}) => theme.COLORS.ROSE};
+    border-radius: 50%;
 
-        > a {
-            height: 48px;
-            margin-top: 24px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .profileUser{
-            background: url(${userImage}) no-repeat center center;
-            background-size: cover;
-            border: none;
-            border-radius: 50%;
-            margin: -93px auto 0;
-            height: 186px;
-            width: 186px;
-            position: relative;
-            
-            > .addPicture{
-                background-color: ${({theme}) => theme.COLORS.ROSE};
-                border: none;
-                border-radius: 50%;
-                height: 48px;
-                width: 48px;
-                
-                position: absolute;
-                top: 130px;
-                left: 130px;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
 
-                > svg {
-                    color: ${({theme}) => theme.COLORS.BACKGROUND_TAGS};
-                    height: 20px;
-                    width: 20px;
-                }
-            }
-        }
+    cursor: pointer;
 
+    input {
+      display: none;
     }
 
+    svg {
+        color: ${({theme}) => theme.COLORS.BACKGROUND_TAGS};
+        height: 20px;
+        width: 20px;
+    }
+  }
 `;
+
+export const Form = styled.form`
+  max-width: 340px;
+  margin: 30px auto 0;
+
+  > div{
+    margin-bottom: 8px;
+    padding: 0 6px;
+  }
+
+  > div > input {
+    outline: none;
+    width: 340px;
+    height: 56px;
+
+  }
+
+  > div:nth-child(4) {
+    margin-top: 24px;
+  }
+`
+
